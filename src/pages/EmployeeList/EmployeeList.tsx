@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../store/store';
 import { Employee } from '../../types/Employee';
 import { deleteEmployee } from '../../store/employeeSlice';
+import Button from '../../components/Button/Button';
 import style from './EmployeeList.module.scss';
 
 const EmployeeList: React.FC = () => {
@@ -30,7 +31,7 @@ const EmployeeList: React.FC = () => {
             <th>City</th>
             <th>State</th>
             <th>Zip Code</th>
-            <th>Delete Button</th> 
+            <th>Delete</th> 
           </tr>
         </thead>
         <tbody>
@@ -46,7 +47,7 @@ const EmployeeList: React.FC = () => {
               <td>{employee.state}</td>
               <td>{employee.zipCode}</td>
               <td>
-                <button onClick={() => handleDelete(index)}>Delete</button>
+                <Button onClick={() => handleDelete(index)}>Delete</Button>
               </td>
             </tr>
           ))}
@@ -57,5 +58,3 @@ const EmployeeList: React.FC = () => {
 };
 
 export default EmployeeList;
-
-
