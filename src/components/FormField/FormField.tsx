@@ -1,4 +1,4 @@
-import React from 'react';
+import style from './FormField.module.scss';
 
 interface FormFieldProps {
   label: string;
@@ -11,7 +11,7 @@ interface FormFieldProps {
 
 const FormField: React.FC<FormFieldProps> = ({ label, name, type = 'text', options, value, onChange }) => {
   return (
-    <div className="form-field">
+    <div className={style.formField}>
       <label htmlFor={name}>{label}</label>
       {type === 'select' ? (
         <select id={name} name={name} value={value} onChange={onChange}>

@@ -1,17 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
-import { Employee } from '../types/Employee'; 
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../../store/store';
+import { Employee } from '../../types/Employee';
+import { deleteEmployee } from '../../store/employeeSlice';
+import style from './EmployeeList.module.scss';
 
 const EmployeeList: React.FC = () => {
-  const employees = useSelector((state: RootState) => state.employees.employees); // Type the state correctly
+  const employees = useSelector((state: RootState) => state.employees.employees);
+  const dispatch = useDispatch();
+
+  const handleDelete = (index: number) => {
+    dispatch(deleteEmployee(index));
+  };
 
   return (
-    <div className="container">
+    <div className={style.EmployeeList}>
       <h1>Current Employees</h1>
       <Link to="/">Home</Link>
-      <table id="employee-table">
+      <table id="employee-table" className={style.employeeTable}>
         <thead>
           <tr>
             <th>First Name</th>
@@ -23,10 +30,11 @@ const EmployeeList: React.FC = () => {
             <th>City</th>
             <th>State</th>
             <th>Zip Code</th>
+            <th>Delete Button</th> 
           </tr>
         </thead>
         <tbody>
-          {employees.map((employee: Employee, index: number) => (  
+          {employees.map((employee: Employee, index: number) => (
             <tr key={index}>
               <td>{employee.firstName}</td>
               <td>{employee.lastName}</td>
@@ -37,12 +45,17 @@ const EmployeeList: React.FC = () => {
               <td>{employee.city}</td>
               <td>{employee.state}</td>
               <td>{employee.zipCode}</td>
+              <td>
+                <button onClick={() => handleDelete(index)}>Delete</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
   );
-}
+};
 
 export default EmployeeList;
+
+

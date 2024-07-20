@@ -1,0 +1,50 @@
+
+.EmployeeList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 0 1rem; 
+}
+
+h1 {
+  margin-bottom: 1rem;
+}
+
+.employeeTable {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.employeeTable th, .employeeTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.employeeTable th {
+  /* background-color: #f2f2f2; */
+  text-align: center;
+}
+
+.employeeTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.employeeTable td {
+  text-align: center;
+}
+
+button {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff1a1a;
+}

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import FormField from '../components/FormField';
-import { states } from '../data/USA_States_List';
-import { Employee } from '../types/Employee';
-import { addEmployee } from '../store/employeeSlice';
+import FormField from '../../components/FormField/FormField';
+import { states } from '../../data/USA_States_List';
+import { Employee } from '../../types/Employee';
+import { addEmployee } from '../../store/employeeSlice';
+import style from './Home.module.scss';
 
 const Home: React.FC = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Home: React.FC = () => {
   };
 
   return (
-    <div className="container">
+    <div className={style.Home}>
       <h1>HRnet</h1>
       <Link to="/employee-list">View Current Employees</Link>
       <h2>Create Employee</h2>

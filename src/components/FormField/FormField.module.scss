@@ -1,0 +1,15 @@
+.formField {
+  margin-bottom: 1rem;
+}
+
+.formField label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.formField input,
+.formField select {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
