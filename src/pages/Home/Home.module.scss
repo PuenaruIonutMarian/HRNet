@@ -1,14 +1,85 @@
-.Home{
+.Home {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    padding: 20px;
+    min-height: 200px;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+
+    h2 {
+        margin-left: 25px;
+    }
 
     form {
-        padding: 1.5rem;
-        border-color: #ccc;
-        border-style: solid;
-        border-width: 1px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 25px;
+        border: solid 1px #ccc;
         border-radius: 10px;
+        margin: 0 25px 25px 25px;
+
+        fieldset{
+            background-color: #3C2A21;
+            border-radius: 10px;
+        }
+
+        .leftForm,
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            button{
+                max-width: 250px;
+            }
+        }
     }
 }
+
+/* Media Queries */
+@media (min-width:320px) and  (max-width: 450px) {
+    .Home{
+
+        border:none;
+        overflow: visible;
+        margin:0px;
+
+        form{
+            border: none;
+            padding: 0px;
+        
+            .leftForm{
+                button{
+                    max-width: 100%;
+                }
+            }
+        }
+
+        h2{
+            margin-left: 25px;
+
+        }
+    }
+}
+
+@media (min-width: 600px) {
+    .Home form {
+        flex-direction: row;
+        justify-content: space-between;
+        min-width: 0; /* Remove fixed min-width */
+    }
+
+    .leftForm,
+    fieldset {
+        flex: 1;
+    }
+}
+
+@media (min-width: 800px) {
+    .Home form {
+        min-width: 650px; /* Apply fixed min-width for larger screens */
+    }
+}
+

@@ -7,7 +7,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #0C0C0C;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,4 +31,24 @@ body {
   justify-content: center;
   place-items: center;
   min-height: 100vh;
+}
+
+button {
+  background-color: #9B3922;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #F2613F;
+}
+
+@media (min-width:320px) and  (max-width: 450px) {
+  body{
+    place-items: unset;
+    justify-content: unset;
+    min-height: none;
+  }
 }

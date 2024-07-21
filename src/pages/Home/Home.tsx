@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import Header from '../../components/Header/Header';
 import { useDispatch } from 'react-redux';
 import InputField from '../../components/InputField/InputField';
 import DateSelector from '../../components/DateSelector/DateSelector';
@@ -39,21 +39,14 @@ const Home: React.FC = () => {
 
   return (
     <div className={style.Home}>
-      <h1>HRnet</h1>
-      <Link to="/employee-list">View Current Employees</Link>
+      <Header />
       <h2>Create Employee</h2>
       <form onSubmit={handleSubmit}>
+        <div className={style.leftForm}>
         <InputField label="First Name" name="firstName" value={employee.firstName} onChange={handleChange} />
         <InputField label="Last Name" name="lastName" value={employee.lastName} onChange={handleChange} />
         <DateSelector label="Date of Birth" name="dateOfBirth" value={employee.dateOfBirth} onChange={handleChange} />
         <DateSelector label="Start Date" name="startDate" value={employee.startDate} onChange={handleChange} />
-        <fieldset>
-          <legend>Address</legend>
-          <InputField label="Street" name="street" value={employee.street} onChange={handleChange} />
-          <InputField label="City" name="city" value={employee.city} onChange={handleChange} />
-          <OptionSelector label="State" name="state" options={states} value={employee.state} onChange={handleChange} />
-          <InputField label="Zip Code" name="zipCode" value={employee.zipCode} onChange={handleChange} />
-        </fieldset>
         <OptionSelector 
           label="Department" 
           name="department" 
@@ -61,7 +54,15 @@ const Home: React.FC = () => {
           value={employee.department} 
           onChange={handleChange} 
         />
-        <Button onClick={(e) => { e.preventDefault(); handleSubmit(e); }}>Save</Button>
+        <Button onClick={(e) => { e.preventDefault(); handleSubmit(e); }}>Save New Employee</Button>
+        </div>
+        <fieldset>
+          <legend>Address</legend>
+          <InputField label="Street" name="street" value={employee.street} onChange={handleChange} />
+          <InputField label="City" name="city" value={employee.city} onChange={handleChange} />
+          <OptionSelector label="State" name="state" options={states} value={employee.state} onChange={handleChange} />
+          <InputField label="Zip Code" name="zipCode" value={employee.zipCode} onChange={handleChange} />
+        </fieldset>
       </form>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
