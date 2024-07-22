@@ -25,16 +25,30 @@ const Home: React.FC = () => {
     department: ''
   });
 
+  const [errors, setErrors] = useState<Partial<Employee>>({});
   const [showModal, setShowModal] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setEmployee({ ...employee, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    const newErrors: Partial<Employee> = {};
+    Object.entries(employee).forEach(([key, value]) => {
+      if (!value) {
+        newErrors[key as keyof Employee] = 'This field is required';
+      }
+    });
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    dispatch(addEmployee(employee));
-    setShowModal(true);
+    if (validateForm()) {
+      dispatch(addEmployee(employee));
+      setShowModal(true);
+    }
   };
 
   return (
@@ -43,26 +57,78 @@ const Home: React.FC = () => {
       <h2>Create Employee</h2>
       <form onSubmit={handleSubmit}>
         <div className={style.leftForm}>
-        <InputField label="First Name" name="firstName" value={employee.firstName} onChange={handleChange} />
-        <InputField label="Last Name" name="lastName" value={employee.lastName} onChange={handleChange} />
-        <DateSelector label="Date of Birth" name="dateOfBirth" value={employee.dateOfBirth} onChange={handleChange} />
-        <DateSelector label="Start Date" name="startDate" value={employee.startDate} onChange={handleChange} />
-        <OptionSelector 
-          label="Department" 
-          name="department" 
-          options={['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal']} 
-          value={employee.department} 
-          onChange={handleChange} 
-        />
-        <Button onClick={(e) => { e.preventDefault(); handleSubmit(e); }}>Save New Employee</Button>
+          <InputField 
+            label="First Name" 
+            name="firstName" 
+            value={employee.firstName} 
+            onChange={handleChange} 
+            error={errors.firstName} 
+          />
+          <InputField 
+            label="Last Name" 
+            name="lastName" 
+            value={employee.lastName} 
+            onChange={handleChange} 
+            error={errors.lastName} 
+          />
+          <DateSelector 
+            label="Date of Birth" 
+            name="dateOfBirth" 
+            value={employee.dateOfBirth} 
+            onChange={handleChange} 
+            error={errors.dateOfBirth} 
+          />
+          <DateSelector 
+            label="Start Date" 
+            name="startDate" 
+            value={employee.startDate} 
+            onChange={handleChange} 
+            error={errors.startDate} 
+          />
+          <OptionSelector 
+            label="Department" 
+            name="department" 
+            options={['Sales', 'Marketing', 'Engineering', 'Human Resources', 'Legal']} 
+            value={employee.department} 
+            onChange={handleChange} 
+            error={errors.department} 
+          />
         </div>
         <fieldset>
           <legend>Address</legend>
-          <InputField label="Street" name="street" value={employee.street} onChange={handleChange} />
-          <InputField label="City" name="city" value={employee.city} onChange={handleChange} />
-          <OptionSelector label="State" name="state" options={states} value={employee.state} onChange={handleChange} />
-          <InputField label="Zip Code" name="zipCode" value={employee.zipCode} onChange={handleChange} />
+          <InputField 
+            label="Street" 
+            name="street" 
+            value={employee.street} 
+            onChange={handleChange} 
+            error={errors.street} 
+          />
+          <InputField 
+            label="City" 
+            name="city" 
+            value={employee.city} 
+            onChange={handleChange} 
+            error={errors.city} 
+          />
+          <OptionSelector 
+            label="State" 
+            name="state" 
+            options={states} 
+            value={employee.state} 
+            onChange={handleChange} 
+            error={errors.state} 
+          />
+          <InputField 
+            label="Zip Code" 
+            name="zipCode" 
+            value={employee.zipCode} 
+            onChange={handleChange} 
+            error={errors.zipCode} 
+          />
         </fieldset>
+        <div className={style.buttonContainer}>
+          <Button onClick={(e) => { e.preventDefault(); handleSubmit(e); }}>Save New Employee</Button>
+        </div>
       </form>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
@@ -74,3 +140,4 @@ const Home: React.FC = () => {
 }
 
 export default Home;
+

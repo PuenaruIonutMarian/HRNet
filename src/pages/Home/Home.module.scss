@@ -1,85 +1,83 @@
 .Home {
-    display: flex;
-    flex-direction: column;
-    min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+
+  h2 {
+    margin-left: 25px;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px;
     border: solid 1px #ccc;
     border-radius: 10px;
-    overflow: hidden;
-    margin: 0 auto;
+    margin: 0 25px 25px 25px;
 
-    h2 {
-        margin-left: 25px;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 25px;
-        padding: 25px;
-        border: solid 1px #ccc;
-        border-radius: 10px;
-        margin: 0 25px 25px 25px;
-
-        fieldset{
-            background-color: #3C2A21;
-            border-radius: 10px;
-        }
-
-        .leftForm,
-        fieldset {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-
-            button{
-                max-width: 250px;
-            }
-        }
-    }
-}
-
-/* Media Queries */
-@media (min-width:320px) and  (max-width: 450px) {
-    .Home{
-
-        border:none;
-        overflow: visible;
-        margin:0px;
-
-        form{
-            border: none;
-            padding: 0px;
-        
-            .leftForm{
-                button{
-                    max-width: 100%;
-                }
-            }
-        }
-
-        h2{
-            margin-left: 25px;
-
-        }
-    }
-}
-
-@media (min-width: 600px) {
-    .Home form {
-        flex-direction: row;
-        justify-content: space-between;
-        min-width: 0; /* Remove fixed min-width */
+    fieldset {
+      background-color: #282A3A;
+      border-radius: 10px;
+      padding-bottom: 25px;
     }
 
     .leftForm,
     fieldset {
-        flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
     }
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+  }
+}
+
+/* Media Queries */
+@media (min-width: 300px) and (max-width: 450px) {
+  .Home {
+    border: none;
+    overflow: visible;
+    margin: 0px;
+
+
+
+    form {
+      border: none;
+      padding: 0px;
+
+    }
+
+    h2 {
+      margin-left: 25px;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .Home form {
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;
+  }
+
+  .leftForm,
+  fieldset {
+    flex: 1;
+  }
 }
 
 @media (min-width: 800px) {
-    .Home form {
-        min-width: 650px; /* Apply fixed min-width for larger screens */
-    }
+  .Home form {
+    min-width: 650px;
+  }
 }
 

@@ -6,9 +6,10 @@ interface OptionSelectorProps {
   options: Array<{ name: string; abbreviation: string } | string>;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  error?: string;
 }
 
-const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, value, onChange }) => {
+const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, value, onChange, error }) => {
   return (
     <div className={style.optionSelector}>
       <label htmlFor={name}>{label}</label>
@@ -20,6 +21,7 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, v
           </option>
         ))}
       </select>
+      {error && <span className={style.error}>{error}</span>}
     </div>
   );
 }

@@ -37,8 +37,10 @@ button {
   background-color: #9B3922;
   color: white;
   border: none;
-  padding: 5px 10px;
+  padding: 10px 10px;
   cursor: pointer;
+  min-width: 100%;
+
 }
 
 button:hover {

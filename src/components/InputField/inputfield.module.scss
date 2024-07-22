@@ -1,8 +1,17 @@
 .inputField{
+    position: relative;
+    .error {
+        position: absolute;
+        color: red;
+        font-size: 12px;
+        width: 100%;
+        bottom: -20px;
+        left: 0%;
+    }
     label{
         display: block;
     }
     input{
-        min-width: 70%;
+        min-width: 97.5%;
     }
 }
