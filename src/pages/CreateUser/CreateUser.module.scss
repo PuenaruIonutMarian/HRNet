@@ -1,0 +1,27 @@
+.createUser {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  border: solid 1px #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+
+  h2 {
+    margin-left: 25px;
+  }
+}
+
+/* Media Queries */
+@media (min-width: 300px) and (max-width: 450px) {
+  .Home {
+    border: none;
+    overflow: visible;
+    margin: 0px;
+
+    h2 {
+      margin-left: 25px;
+    }
+  }
+}

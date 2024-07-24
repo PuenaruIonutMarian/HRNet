@@ -1,9 +1,9 @@
-import style from './OptionsSelector.module.scss';
+import style from './OptionSelector.module.scss';
 
 interface OptionSelectorProps {
   label: string;
   name: string;
-  options: Array<{ name: string; abbreviation: string } | string>;
+  options: string[];
   value: string;
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
   error?: string;
@@ -16,8 +16,8 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, v
       <select id={name} name={name} value={value} onChange={onChange}>
         <option value="">Select {label}</option>
         {options.map((option) => (
-          <option key={typeof option === 'string' ? option : option.abbreviation} value={typeof option === 'string' ? option : option.abbreviation}>
-            {typeof option === 'string' ? option : option.name}
+          <option key={option} value={option}>
+            {option}
           </option>
         ))}
       </select>
@@ -27,3 +27,4 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, v
 }
 
 export default OptionSelector;
+

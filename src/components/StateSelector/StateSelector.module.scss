@@ -1,4 +1,4 @@
-.dateSelector{
+.stateSelector{
     position: relative;
     .error {
         position: absolute;
@@ -8,11 +8,10 @@
         bottom: -20px;
         left: 0%;
     }
-
     label{
         display: block;
     }
-    input{
-        min-width: 98%;
+    select{
+        min-width: 100%;
     }
 }

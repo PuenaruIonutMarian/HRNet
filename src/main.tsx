@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home/Home.tsx'
+import Error from './pages/ErrorPage/ErrorPage.tsx'
+import CreateUser from './pages/CreateUser/CreateUser.tsx';
 import EmployeeList from './pages/EmployeeList/EmployeeList.tsx'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -14,8 +15,9 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <PersistGate loading={null} persistor={persistor}>
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<CreateUser/>} />
             <Route path="/employee-list" element={<EmployeeList />} />
+            <Route path="*" element={<Error />} />
           </Routes>
         </Router>
       </PersistGate>
