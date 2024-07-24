@@ -10,7 +10,7 @@ const Error: React.FC = (): JSX.Element => {
     <div className={styles.error}>
       <h1>404</h1>
       <h3>Oups! The page you requested was not found.</h3>
-      <Link to="/">Back To Create User Page 👈</Link>
+      <Link to="/">Go Back To The Create User Page 👈</Link>
     </div>
   );
 }
