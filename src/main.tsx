@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import Error from './pages/ErrorPage/ErrorPage.tsx'
 import CreateUser from './pages/CreateUser/CreateUser.tsx';
 import EmployeeList from './pages/EmployeeList/EmployeeList.tsx'
+import EmployeesTable from './pages/EmployeesTable/EmployeesTable.tsx';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './store/store.ts';
@@ -17,6 +18,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
           <Routes>
             <Route path="/" element={<CreateUser/>} />
             <Route path="/employee-list" element={<EmployeeList />} />
+            <Route path="/employees-table" element={<EmployeesTable />} />
             <Route path="*" element={<Error />} />
           </Routes>
         </Router>

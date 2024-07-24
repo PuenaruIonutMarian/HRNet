@@ -5,11 +5,11 @@ import style from "./CreateUser.module.scss"
 
 const CreateUser: React.FC = () => {
   return (
-    <div className={style.createUser}>
+    <main className={style.createUser}>
         <Header />
         <h2>Create Employee</h2>
         <CreateForm />
-    </div>
+    </main>
   )
 }
 
