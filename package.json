@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ionutpuenaru/employee_table": "^1.1.4",
     "@reduxjs/toolkit": "^2.2.6",
     "@types/react-redux": "^7.1.33",
     "@types/react-router-dom": "^5.3.3",
