@@ -9,8 +9,7 @@ const Header: React.FC<HeaderProps> = () => {
       <h1>
         HR<span className={style.hr}>NET</span>
       </h1>
-      <Link to="/employees-table">Test route</Link>
-      <Link to="/employee-list">Show All Employees</Link>
+      <Link to="/employees-table">See All Employees</Link>
     </div>
   );
 };
