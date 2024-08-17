@@ -3,8 +3,13 @@
     justify-content: space-between;
     align-items: center;
     background-color: #282A3A;
-
     padding: 0 25px;
+
+    a{
+        font-size: 20px;
+        font-weight: 700;
+
+    }
 
     h1{
         font-size: 2rem;
@@ -12,4 +17,13 @@
             font-size: medium;
         }
     }
+}
+
+@media screen and (max-width: 450px) {
+    .header{
+        a{
+            font-size: 18px;
+        }
+    }
+    
 }
