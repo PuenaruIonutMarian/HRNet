@@ -1,6 +1,85 @@
+@import '../../styles/globals.scss';
+
 .mainTableContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 25px;
+
+
+  .specialModule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+
+    .linkToHome {
+      font-size: 24px;
+    }
+  }
+
+
+
+
+  // Styles for the table Library
+    .tableAppClassName {
+        .rowClassName:nth-child(even) {
+        background-color: #282A3A;
+        }
+
+        a {
+            color:white;
+        }
+
+        button {
+        min-width: auto; 
+        background-color: initial; 
+        color: inherit; 
+        border: none; 
+        padding: 5px 10px; 
+        cursor: pointer; 
+        }
+
+        button:hover {
+        background-color: #F2613F; 
+        }
+
+
+    }
+
+  // global styles for the library table
+  :global {
+    .table th.sorted-column,
+    .table td.sorted-column {
+      background-color: rgba(255, 255, 255, 0.1); ;
+    }
+
+  
+    .table tr:nth-child(even):hover {
+    background-color: rgba(255, 255, 255, 0.658) ;
+    color:#282A3A;
+    }
+
+    .table tr:hover {
+      background-color: rgba(255, 255, 255, 0.658);
+      color:#282A3A;
+    }
+
+    .table thead tr:hover {
+      background-color: unset; 
+      color:unset;
+      cursor: pointer;
+    }
     
-.rowClassName:nth-child(even) {
-    background-color: #1c1f5f;
+    .sort-icon.sorted-asc,
+.sort-icon.sorted-desc {
+  color: gray;
 }
+  
+  }
 }
+
