@@ -5,6 +5,10 @@
 
 A React application for managing employee records, featuring state persistence with Redux, and routing with React Router. This project includes a custom `EmployeeTable` library for displaying employee data in a sortable, filterable, and paginated table.
 
+# Deployment
+The project is hosted at the following address: 
+- https://hrnetpuenaruionut.netlify.app/
+
 ## Table of Contents
 
 - [Features](#features)
