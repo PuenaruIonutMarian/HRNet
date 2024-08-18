@@ -74,7 +74,7 @@ const EmployeesTable: React.FC = () => {
       </div>
 
       {showModal && (
-        <Modal onClose={cancelDelete}>
+        <Modal >
           <p>Are you sure you want to delete the current employee list?</p>
           <p>If you click "Yes," the list will be replaced with mock data.</p>
           <div className={style.modalButtonContainer}>

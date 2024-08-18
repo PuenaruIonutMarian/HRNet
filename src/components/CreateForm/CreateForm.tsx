@@ -148,7 +148,7 @@ const CreateForm: React.FC = () => {
         </div>
       </form>
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        <Modal >
           <h2>Employee Created!</h2>
           <Button onClick={() => setShowModal(false)}>Close</Button>
         </Modal>

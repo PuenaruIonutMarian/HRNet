@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p><a href="https://react.dev/"><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&amp;logo=react&amp;logoColor=61DAFB" alt="React version"></a> <img src="https://img.shields.io/badge/React--Redux-7651A1?style=for-the-badge&amp;logo=redux&amp;logoColor=white" alt="React-Redux version"> <img src="https://img.shields.io/badge/Redux--Persist-000000?style=for-the-badge&amp;logo=redux&amp;logoColor=white" alt="Redux Persist"> <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&amp;logo=typescript&amp;logoColor=white" alt="Typescript version"></a> <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&amp;logo=sass&amp;logoColor=white" alt="Sass version"> <a href="https://www.w3.org/Style/CSS/#specs"><img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&amp;logo=css3&amp;logoColor=white" alt="CSS version"></a> <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&amp;logo=vite&amp;logoColor=FFD62E" alt="Vite version"></a> <a href="https://www.npmjs.com/"><img src="https://img.shields.io/badge/npm-CB3837?style=for-the-badge&amp;logo=npm&amp;logoColor=white" alt="NPM version"></a> <a href="https://nodejs.org/en"><img src="https://img.shields.io/badge/Node%20js-339933?style=for-the-badge&amp;logo=nodedotjs&amp;logoColor=white" alt="Node version"></a> <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&amp;logo=visual-studio-code&amp;logoColor=white" alt="Visual Studio Code"></a> <img src="https://img.shields.io/badge/License-MIT-yellowgreen?style=for-the-badge" alt="MIT License"> <img src="https://img.shields.io/readthedocs/pip?style=for-the-badge" alt="Read the Docs"></p>
+<h1>HRnet Application</h1>
+<p>A React application for managing employee records, featuring state persistence with Redux, and routing with React Router. This project includes a custom <code>EmployeeTable</code> library for displaying employee data in a sortable, filterable, and paginated table.</p>
+<h2>Table of Contents</h2>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#usage">Usage</a></li>
+<li><a href="#library-integration">Library Integration</a></li>
+<li><a href="#api-reference">API Reference</a></li>
+<li><a href="#contributing">Contributing</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+<h2>Features</h2>
+<ul>
+<li>Create and manage employee records.</li>
+<li>View employee data in a sortable and filterable table.</li>
+<li>Persistent state using Redux and Redux-Persist.</li>
+<li>Responsive design with SCSS.</li>
+<li>Simple routing with React Router.</li>
+</ul>
+<h2>Installation</h2>
+<p>To get started with the project, follow these steps:</p>
+<ol>
+<li><strong>Clone the repository:</strong></li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>git clone https://github.com/PuenaruIonutMarian/HRNet.git
+cd hr-application
+</code></pre>
+<ol start="2">
+<li><strong>Install dependencies:</strong></li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>npm install
+</code></pre>
+<ol start="3">
+<li>Start the development server:</li>
+</ol>
+<pre class="prettyprint source lang-bash"><code>npm start
+</code></pre>
+<h2>Usage</h2>
+<h3>Creating Employees</h3>
+<ul>
+<li>Navigate to the Create Employee page to add new employee records.</li>
+</ul>
+<h3>Viewing Employees</h3>
+<ul>
+<li>Go to the Current Employees page to view and manage the list of employees.</li>
+</ul>
+<h3>Deleting Employees</h3>
+<ul>
+<li>On the Current Employees page, you can delete the list of employees, which will be replaced with mock data.</li>
+</ul>
+<h2>Library Integration</h2>
+<p>The <code>EmployeeTable</code> library is used for displaying employee data. It supports sorting, filtering, and pagination.</p>
+<h3>Usage</h3>
+<pre class="prettyprint source lang-jsx"><code>import { EmployeeTable, DataRow } from '@ionutpuenaru/employee_table';
+
+// Example usage in a React component
+&lt;EmployeeTable
+  data={employees as DataRow[]}
+  tableClassName={style.tableClassName}
+  headerClassName={style.headerClassName}
+  rowClassName={style.rowClassName}
+  cellClassName={style.cellClassName}
+  tableAppClassName={style.tableAppClassName}
+/>
+
+</code></pre>
+<h3><code>EmployeeTable</code> Props:</h3>
+<ul>
+<li><code>data</code> (<code>DataRow[]</code>): Array of data rows to be displayed in the table.</li>
+<li><code>tableAppClassName</code> (<code>string</code>): Optional class name for the outer container of the table.</li>
+<li><code>tableClassName</code> (<code>string</code>): Optional class name for the <code>&lt;table&gt;</code> element.</li>
+<li><code>headerClassName</code> (<code>string</code>): Optional class name for the table headers.</li>
+<li><code>rowClassName</code> (<code>string</code>): Optional class name for table rows.</li>
+<li><code>cellClassName</code> (<code>string</code>): Optional class name for table cells.</li>
+</ul>
+<h2>API Reference</h2>
+<h3><code>Employee</code> Interface</h3>
+<pre class="prettyprint source lang-typescript"><code>export interface Employee {
+  [key: string]: unknown;
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  startDate: string;
+  street: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  department: string;
+}
+</code></pre>
+<h3><code>useEmployeeValidation</code> Hook</h3>
+<p>Validates employee data and provides error messages.</p>
+<pre class="prettyprint source lang-typescript"><code>const { errors, validateForm } = useEmployeeValidation(employee);
+</code></pre>
+<h2><code>testerData</code></h2>
+<pre class="prettyprint source lang-typescript"><code>export declare const testerData: Employee[];
+</code></pre>
+<h2>Contributing</h2>
+<p>Contributions are welcome! Please follow these steps to contribute:</p>
+<ul>
+<li>Fork the repository.</li>
+<li>Create a new branch (git checkout -b feature/your-feature).</li>
+<li>Make your changes.</li>
+<li>Commit your changes (git commit -am 'Add new feature').</li>
+<li>Push to the branch (git push origin feature/your-feature).</li>
+<li>Create a new Pull Request.</li>
+</ul>
+<h2>License</h2>
+<p>This project is licensed under the MIT License - see the LICENSE file for details.</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="CreateUser.html">CreateUser</a></li><li><a href="EmployeesTable.html">EmployeesTable</a></li><li><a href="Header.html">Header</a></li></ul><h3>Interfaces</h3><ul><li><a href="DateSelectorProps.html">DateSelectorProps</a></li><li><a href="Employee.html">Employee</a></li><li><a href="EmployeeState.html">EmployeeState</a></li><li><a href="InputFieldProps.html">InputFieldProps</a></li></ul><h3>Global</h3><ul><li><a href="global.html"></a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#CreateForm">CreateForm</a></li><li><a href="global.html#DateSelector">DateSelector</a></li><li><a href="global.html#Error">Error</a></li><li><a href="global.html#InputField">InputField</a></li><li><a href="global.html#Modal">Modal</a></li><li><a href="global.html#OptionSelector">OptionSelector</a></li><li><a href="global.html#StateSelector">StateSelector</a></li><li><a href="global.html#calculateAge">calculateAge</a></li><li><a href="global.html#employeeSlice">employeeSlice</a></li><li><a href="global.html#initialEmployeeState">initialEmployeeState</a></li><li><a href="global.html#initialState">initialState</a></li><li><a href="global.html#persistConfig">persistConfig</a></li><li><a href="global.html#persistedReducer">persistedReducer</a></li><li><a href="global.html#persistor">persistor</a></li><li><a href="global.html#rootReducer">rootReducer</a></li><li><a href="global.html#states">states</a></li><li><a href="global.html#store">store</a></li><li><a href="global.html#testerData">testerData</a></li><li><a href="global.html#useEmployeeValidation">useEmployeeValidation</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun Aug 18 2024 22:03:55 GMT+0200 (Central European Summer Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
