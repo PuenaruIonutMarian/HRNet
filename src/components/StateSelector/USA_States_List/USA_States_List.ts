@@ -1,3 +1,13 @@
+/**
+ * An array of objects representing U.S. states and territories, where each object contains the
+ * full name of the state or territory and its corresponding postal abbreviation.
+ * 
+ * Example usage:
+ * ```typescript
+ * console.log(states[0].name); // Outputs: "Alabama"
+ * console.log(states[0].abbreviation); // Outputs: "AL"
+ * ```
+ */
 export const states: { name: string; abbreviation: string }[] = [
     {
         "name": "Alabama",

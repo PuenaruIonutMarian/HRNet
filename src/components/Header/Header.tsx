@@ -3,6 +3,14 @@ import style from './header.module.scss';
 
 interface HeaderProps {}
 
+/**
+ * The Header component displays the title and a navigation link for the HR application.
+ * 
+ * This component includes a title with a stylized HR abbreviation and a link to the "See All Employees" page.
+ * 
+ * @component
+ * @returns {JSX.Element} The rendered header component with a navigation link.
+ */
 const Header: React.FC<HeaderProps> = () => {
   return (
     <div className={style.header}>

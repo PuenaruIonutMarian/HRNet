@@ -3,21 +3,45 @@ import { Employee } from '../../types/Employee';
 
 type ValidationErrors = Partial<Record<keyof Employee, string>>;
 
+/**
+ * Custom hook to validate employee data.
+ *
+ * @param {Employee} employee - The employee object to validate.
+ * @returns {{
+ *   errors: ValidationErrors;
+ *   validateForm: () => boolean;
+ * }} - An object containing validation errors and a function to validate the form.
+ */
 const useEmployeeValidation = (employee: Employee) => {
   const [errors, setErrors] = useState<ValidationErrors>({});
 
-  //validate the employee object. It checks various fields for validity and updates the errors state accordingly.
+  /**
+   * Validates the employee form data.
+   * Checks various fields for validity, such as name, date of birth, start date, and zip code.
+   * Updates the errors state with validation messages.
+   *
+   * @returns {boolean} - Returns true if the form is valid, otherwise false.
+   */
   const validateForm = useCallback(() => {
     const newErrors: ValidationErrors = {};
 
-    //Checks if a field is empty and adds an error message if it is.
+    /**
+     * Checks if a required field is empty and adds an error message if it is.
+     *
+     * @param {keyof Employee} key - The key of the employee object to validate.
+     */
     const validateRequired = (key: keyof Employee) => {
       if (!employee[key]) {
         newErrors[key] = 'This field is required';
       }
     };
 
-    //Checks if firstName or lastName contains only valid characters and is required.
+    /**
+     * Validates that the name fields (firstName, lastName) contain only valid characters.
+     * Only allows letters, spaces, and hyphens.
+     *
+     * @param {'firstName' | 'lastName'} key - The key of the name field to validate.
+     */
     const validateName = (key: 'firstName' | 'lastName') => {
       validateRequired(key);
       if (employee[key] && typeof employee[key] === 'string' && !/^[A-Za-z\s-]+$/.test(employee[key])) {
@@ -77,7 +101,14 @@ const useEmployeeValidation = (employee: Employee) => {
   return { errors, validateForm };
 };
 
-//Calculates the age of the employee based on their birth date.
+
+/**
+ * Calculates the age of the employee based on their date of birth.
+ *
+ * @param {Date} birthDate - The employee's birth date.
+ * @param {Date} today - The current date.
+ * @returns {number} - The calculated age.
+ */
 const calculateAge = (birthDate: Date, today: Date) => {
   let age = today.getFullYear() - birthDate.getFullYear();
   const monthDiff = today.getMonth() - birthDate.getMonth();

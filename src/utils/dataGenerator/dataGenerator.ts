@@ -1,4 +1,7 @@
 /**
+ * Generates an array of mock employee data for testing purposes.
+ * Each employee has randomly generated properties like name, date of birth, start date, address, and department.
+ *
  * @type {import('../../types').Employee[]}
  */
 export const testerData = Array.from({ length: 120 }, () => {

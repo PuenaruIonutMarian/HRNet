@@ -8,6 +8,16 @@
   min-height: 100vh;
   gap: 25px;
 
+  .modalButtonContainer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+
+  button {
+    margin: 0 10px;
+  }
+}
+
 
   .specialModule {
     width: 100%;
