@@ -24,7 +24,7 @@ interface ButtonProps {
  */
 const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
   return (
-    <button className={style.button} onClick={onClick}>
+    <button role='button' className={style.button} onClick={onClick}>
       {children}
     </button>
   );
