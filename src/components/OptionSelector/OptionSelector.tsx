@@ -48,9 +48,9 @@ interface OptionSelectorProps {
  */
 const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, value, onChange, error }) => {
   return (
-    <div className={style.optionSelector}>
+    <div className={style.optionSelector} data-testid="option-selector">
       <label htmlFor={name}>{label}</label>
-      <select id={name} name={name} value={value} onChange={onChange}>
+      <select id={name} name={name} value={value} onChange={onChange} data-testid="select-element">
         <option value="">Select {label}</option>
         {options.map((option) => (
           <option key={option} value={option}>
@@ -58,7 +58,7 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, v
           </option>
         ))}
       </select>
-      {error && <span className={style.error}>{error}</span>}
+      {error && <span className={style.error} data-testid="error-message">{error}</span>}
     </div>
   );
 }

@@ -13,9 +13,9 @@ interface HeaderProps {}
  */
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <div className={style.header}>
+    <div className={style.header} data-testid="header-container">
       <h1>
-        HR<span className={style.hr}>NET</span>
+        HR<span className={style.hr} data-testid="header-span">NET</span>
       </h1>
       <Link to="/employees-table">See All Employees</Link>
     </div>

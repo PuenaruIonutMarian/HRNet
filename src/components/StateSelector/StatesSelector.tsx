@@ -50,9 +50,9 @@ interface StateSelectorProps {
  */
 const StateSelector: React.FC<StateSelectorProps> = ({ label, name, options, value, onChange, error }) => {
   return (
-    <div className={style.stateSelector}>
+    <div className={style.stateSelector} data-testid="state-selector">
       <label htmlFor={name}>{label}</label>
-      <select id={name} name={name} value={value} onChange={onChange}>
+      <select id={name} name={name} value={value} onChange={onChange} data-testid="select-element">
         <option value="">Select {label}</option>
         {options.map((option) => (
           <option key={option.abbreviation} value={option.abbreviation}>
@@ -60,7 +60,7 @@ const StateSelector: React.FC<StateSelectorProps> = ({ label, name, options, val
           </option>
         ))}
       </select>
-      {error && <span className={style.error}>{error}</span>}
+      {error && <span className={style.error} data-testid="error-message">{error}</span>}
     </div>
   );
 }
