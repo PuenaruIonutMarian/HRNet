@@ -38,6 +38,7 @@ This project leverages the following technologies:
 - `Sass`: A preprocessor scripting language that is interpreted or compiled into CSS.
 - `Vite`: A fast build tool and development server for modern web projects.
 - `Vitest`: A blazing-fast unit test framework powered by Vite.
+- `Playwright`: A Node.js library for browser automation that allows you to test your web applications end-to-end across different browsers.
 - `Node.js`: A JavaScript runtime built on Chrome's V8 JavaScript engine.
 - `npm`: A package manager for JavaScript.
 - `Visual Studio Code`: A source-code editor made by Microsoft for Windows, Linux, and macOS.
@@ -46,9 +47,9 @@ This project leverages the following technologies:
 ### Prerequisites
 Before you begin, ensure you have the following installed:
 
-`Node.js`: Version 16.0.0 or higher.
-`npm`: Version 8.0.0 or higher, which comes with Node.js.
-`Visual Studio Code (recommended)`: A text editor optimized for building and debugging modern web and cloud applications.
+* `Node.js`: Version v20.17.0.
+* `npm`: Version 8.0.0 or higher, which comes with Node.js.
+* `Visual Studio Code (recommended)`: A text editor optimized for building and debugging modern web and cloud applications.
 
 ## Installation
 
@@ -123,6 +124,30 @@ import { EmployeeTable, DataRow } from '@ionutpuenaru/employee_table';
   - `headerClassName` (`string`): Optional class name for the table headers.
   - `rowClassName` (`string`): Optional class name for table rows.
   - `cellClassName` (`string`): Optional class name for table cells.
+
+
+## Testing
+This app is using unit Vitest for the components and Playwright for the pages.
+
+### Unit Tests:
+To run the unit tests with Vitest:
+
+```bash
+npm test:unit
+```
+### Playwright Tests:
+To run Playwright end-to-end tests:
+
+```bash
+npm run test:playwright
+```
+
+Test Results:
+If you encounter issues with tests, ensure that:
+
+* The components are properly rendered with the correct data-testid attributes.
+* The mocks and stubs are correctly set up for the test environment.
+
 
 ## Type Definitions
 
