@@ -1,8 +1,7 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import Modal from '../../src/components/Modal/Modal';
-import '@testing-library/jest-dom'; // for matchers like toBeInTheDocument
+import Modal from '../../components/Modal/Modal';
+import '@testing-library/jest-dom'; 
 
 // Mocking the styles module
 vi.mock('./modal.module.scss', () => ({

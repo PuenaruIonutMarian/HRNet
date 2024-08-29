@@ -1,7 +1,7 @@
 import { renderHook, act } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-import useEmployeeValidation from '../../src/utils/hooks/EmployeeValidation'; // Adjust the import path as needed
-import { Employee } from '../../src/types/Employee'; // Adjust the import path as needed
+import useEmployeeValidation from '../../utils/hooks/EmployeeValidation'; 
+import { Employee } from '../../types/Employee'; 
 
 describe('useEmployeeValidation', () => {
   const validEmployee: Employee = {

@@ -10,6 +10,7 @@ interface InputFieldProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   error?: string;
+  'data-testid'?: string;
 }
 
 /**
@@ -24,12 +25,12 @@ interface InputFieldProps {
  * 
  * @returns {JSX.Element} The rendered input field component with label and optional error message.
  */
-const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', value, onChange, error }) => {
+const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', value, onChange, error, 'data-testid': testId }) => {
   return (
-    <div className={style.inputField}>
+    <div className={style.inputField} data-testid={`${testId}-container`}>
       <label htmlFor={name}>{label}</label>
-      <input type={type} id={name} name={name} value={value} onChange={onChange} />
-      {error && <span className={style.error}>{error}</span>}
+      <input type={type} id={name} name={name} value={value} onChange={onChange} data-testid={`${testId}-input`}/>
+      {error && <span className={style.error} data-testid={`${testId}-error`}>{error}</span>}
     </div>
   );
 }

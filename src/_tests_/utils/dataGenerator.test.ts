@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { testerData } from '../../src/utils/dataGenerator/dataGenerator'; 
+import { testerData } from '../../utils/dataGenerator/dataGenerator'; 
 
 describe('Data Generator', () => {
   it('should generate an array of 120 employees', () => {
@@ -54,7 +54,7 @@ describe('Data Generator', () => {
 
   it('should generate unique combinations of employee data', () => {
     const uniqueEmployees = new Set(testerData.map((employee) => JSON.stringify(employee)));
-    expect(uniqueEmployees.size).toBeGreaterThan(1); // Ensure at least some variety
+    expect(uniqueEmployees.size).toBeGreaterThan(1); 
   });
 
   it('should generate valid dates for dateOfBirth and startDate', () => {

@@ -1,10 +1,9 @@
-import React from 'react';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { vi } from 'vitest';
-import CreateForm from '../../src/components/CreateForm/CreateForm';
-import employeeReducer, { addEmployee } from '../../src/store/employeeSlice';
+import CreateForm from '../../components/CreateForm/CreateForm';
+import employeeReducer, { addEmployee } from '../../store/employeeSlice';
 import '@testing-library/jest-dom';
 
 const store = configureStore({

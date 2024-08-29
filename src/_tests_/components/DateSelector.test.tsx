@@ -1,7 +1,6 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import DateSelector from '../../src/components/DateSelector/DateSelector';
+import DateSelector from '../../components/DateSelector/DateSelector';
 import '@testing-library/jest-dom';
 
 // Mocking the styles module

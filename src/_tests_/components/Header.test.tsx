@@ -1,7 +1,6 @@
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import Header from '../../src/components/Header/Header';
+import Header from '../../components/Header/Header';
 import { BrowserRouter } from 'react-router-dom';
 import '@testing-library/jest-dom'; 
 

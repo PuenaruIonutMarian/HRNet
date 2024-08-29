@@ -3,8 +3,8 @@ import employeeReducer, {
   EmployeeState, 
   addEmployee, 
   deleteEmployee 
-} from '../../src/store/employeeSlice'; // Adjust the import path as needed
-import { Employee } from '../../src/types/Employee'; // Adjust the import path as needed
+} from '../../store/employeeSlice'; 
+import { Employee } from '../../types/Employee'; 
 
 describe('employeeSlice', () => {
   const initialState: EmployeeState = {

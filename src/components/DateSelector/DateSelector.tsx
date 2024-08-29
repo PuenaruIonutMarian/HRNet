@@ -26,6 +26,8 @@ interface DateSelectorProps {
    * Optional error message to display if there's a validation error.
    */
   error?: string;
+
+  'data-testid'?: string;
 }
 
 /**
@@ -36,12 +38,12 @@ interface DateSelectorProps {
  * @param {DateSelectorProps} props - The props for the component.
  * @returns {JSX.Element} The rendered date selector component.
  */
-const DateSelector: React.FC<DateSelectorProps> = ({ label, name, value, onChange, error }) => {
+const DateSelector: React.FC<DateSelectorProps> = ({ label, name, value, onChange, error, 'data-testid': testId }) => {
   return (
-    <div className={style.dateSelector}>
+    <div className={style.dateSelector} data-testid={`${testId}-container`}>
       <label htmlFor={name}>{label}</label>
-      <input type="date" id={name} name={name} value={value} onChange={onChange} />
-      {error && <span className={style.error}>{error}</span>}
+      <input type="date" id={name} name={name} value={value} onChange={onChange} data-testid={`${testId}-input`} />
+      {error && <span className={style.error} data-testid={`${testId}-error`}>{error}</span>}
     </div>
   );
 }

@@ -80,6 +80,7 @@ const CreateForm: React.FC = () => {
             value={employee.firstName} 
             onChange={handleChange} 
             error={errors.firstName} 
+            data-testid="firstName"
           />
           <InputField 
             label="Last Name" 
@@ -87,6 +88,7 @@ const CreateForm: React.FC = () => {
             value={employee.lastName} 
             onChange={handleChange} 
             error={errors.lastName} 
+            data-testid="lastName"
           />
           <DateSelector 
             label="Date of Birth" 
@@ -94,6 +96,7 @@ const CreateForm: React.FC = () => {
             value={employee.dateOfBirth} 
             onChange={handleChange} 
             error={errors.dateOfBirth} 
+            data-testid="dateOfBirth"
           />
           <DateSelector 
             label="Start Date" 
@@ -101,6 +104,7 @@ const CreateForm: React.FC = () => {
             value={employee.startDate} 
             onChange={handleChange} 
             error={errors.startDate} 
+            data-testid="startDate"
           />
           <OptionSelector 
             label="Department" 
@@ -109,6 +113,7 @@ const CreateForm: React.FC = () => {
             value={employee.department} 
             onChange={handleChange} 
             error={errors.department} 
+            data-testid="department"
           />
         </div>
         <fieldset>
@@ -119,6 +124,7 @@ const CreateForm: React.FC = () => {
             value={employee.street} 
             onChange={handleChange} 
             error={errors.street} 
+            data-testid="street"
           />
           <InputField 
             label="City" 
@@ -126,6 +132,7 @@ const CreateForm: React.FC = () => {
             value={employee.city} 
             onChange={handleChange} 
             error={errors.city} 
+            data-testid="city"
           />
           <StateSelector 
             label="State" 
@@ -134,6 +141,7 @@ const CreateForm: React.FC = () => {
             value={employee.state} 
             onChange={handleChange} 
             error={errors.state} 
+            data-testid="state"
           />
           <InputField 
             label="Zip Code" 
@@ -141,6 +149,7 @@ const CreateForm: React.FC = () => {
             value={employee.zipCode} 
             onChange={handleChange} 
             error={errors.zipCode} 
+            data-testid="zipCode"
           />
         </fieldset>
         <div className={style.buttonContainer}>

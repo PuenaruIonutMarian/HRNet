@@ -32,6 +32,8 @@ interface OptionSelectorProps {
    * Optional error message to display if there is a validation error.
    */
   error?: string;
+
+  'data-testid'?: string;
 }
 
 /**
@@ -46,11 +48,11 @@ interface OptionSelectorProps {
  * 
  * @returns {JSX.Element} The rendered select field with its options and label.
  */
-const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, value, onChange, error }) => {
+const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, value, onChange, error, 'data-testid': testId }) => {
   return (
-    <div className={style.optionSelector} data-testid="option-selector">
+    <div className={style.optionSelector} data-testid={`${testId}-container`}>
       <label htmlFor={name}>{label}</label>
-      <select id={name} name={name} value={value} onChange={onChange} data-testid="select-element">
+      <select id={name} name={name} value={value} onChange={onChange} data-testid={`${testId}-select`}>
         <option value="">Select {label}</option>
         {options.map((option) => (
           <option key={option} value={option}>
@@ -58,7 +60,7 @@ const OptionSelector: React.FC<OptionSelectorProps> = ({ label, name, options, v
           </option>
         ))}
       </select>
-      {error && <span className={style.error} data-testid="error-message">{error}</span>}
+      {error && <span className={style.error} data-testid={`${testId}-error`}>{error}</span>}
     </div>
   );
 }

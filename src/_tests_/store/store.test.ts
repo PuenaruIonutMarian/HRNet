@@ -3,15 +3,15 @@ import { describe, it, expect, vi } from 'vitest';
 import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { store, persistor, RootState, AppDispatch } from '../../src/store/store'; // Adjust the import path as needed
-import employeeReducer from '../../src/store/employeeSlice'; // Adjust the import path as needed
+import { store, persistor, RootState, AppDispatch } from '../../store/store'; 
+import employeeReducer from '../../store/employeeSlice'; 
 
 // Mock redux-persist
 vi.mock('redux-persist', async () => {
   const actual = await vi.importActual('redux-persist');
   return {
     ...actual,
-    persistReducer: vi.fn().mockImplementation((config, reducer) => reducer),
+    persistReducer: vi.fn().mockImplementation((_config, reducer) => reducer),
     persistStore: vi.fn().mockImplementation((store) => store),
   };
 });

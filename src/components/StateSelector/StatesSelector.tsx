@@ -33,6 +33,8 @@ interface StateSelectorProps {
    * Optional error message to display if there is a validation error.
    */
   error?: string;
+
+  'data-testid'?: string;
 }
 
 /**
@@ -48,11 +50,11 @@ interface StateSelectorProps {
  * 
  * @returns {JSX.Element} The rendered select field with its options and label.
  */
-const StateSelector: React.FC<StateSelectorProps> = ({ label, name, options, value, onChange, error }) => {
+const StateSelector: React.FC<StateSelectorProps> = ({ label, name, options, value, onChange, error, 'data-testid': testId }) => {
   return (
-    <div className={style.stateSelector} data-testid="state-selector">
+    <div className={style.stateSelector} data-testid={`${testId}-container`}>
       <label htmlFor={name}>{label}</label>
-      <select id={name} name={name} value={value} onChange={onChange} data-testid="select-element">
+      <select id={name} name={name} value={value} onChange={onChange} data-testid={`${testId}-select`}>
         <option value="">Select {label}</option>
         {options.map((option) => (
           <option key={option.abbreviation} value={option.abbreviation}>
@@ -60,7 +62,7 @@ const StateSelector: React.FC<StateSelectorProps> = ({ label, name, options, val
           </option>
         ))}
       </select>
-      {error && <span className={style.error} data-testid="error-message">{error}</span>}
+      {error && <span className={style.error} data-testid={`${testId}-error`}>{error}</span>}
     </div>
   );
 }

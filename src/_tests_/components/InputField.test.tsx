@@ -1,7 +1,6 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import InputField from '../../src/components/InputField/InputField';
+import InputField from '../../components/InputField/InputField';
 import '@testing-library/jest-dom';
 
 // Mocking the styles module
@@ -34,7 +33,7 @@ describe('InputField Component', () => {
   const errorElement = screen.getByText(errorMessage);
 
   expect(errorElement).toBeInTheDocument();
-  expect(errorElement).toHaveClass(/_error_/); // Check for class existence
+  expect(errorElement).toHaveClass(/_error_/); 
 });
 
     it('calls onChange when the input value changes', () => {
