@@ -5,7 +5,7 @@ import employeeReducer from './employeeSlice';
 
 /**
  * The root reducer combining all slice reducers.
- * In this case, it includes only the employeeReducer.
+ * In this case, it includes only the `employeeReducer`.
  * 
  * @type {import('@reduxjs/toolkit').Reducer<import('redux').CombinedState<{ employees: import('./employeeSlice').EmployeeState }>>}
  */

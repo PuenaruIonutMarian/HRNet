@@ -22,7 +22,7 @@ interface OptionSelectorProps {
   value: string;
   
   /**
-   * Function to handle changes to the select field.
+   * Callback function to handle changes to the select field.
    * 
    * @param e - The event object containing the new value.
    */
@@ -32,19 +32,25 @@ interface OptionSelectorProps {
    * Optional error message to display if there is a validation error.
    */
   error?: string;
-
+  /**
+   * Optional data-testid attribute for testing purposes.
+   */
   'data-testid'?: string;
 }
 
 /**
- * The OptionSelector component renders a dropdown select field with a label and optional error message.
+ * The `OptionSelector` component renders a dropdown select field with a label and optional error message.
  * 
- * @param {string} label - The label to display for the select field.
- * @param {string} name - The name attribute of the select field.
- * @param {string[]} options - Array of options to be displayed in the select dropdown.
- * @param {string} value - The current selected value of the select field.
- * @param {(e: React.ChangeEvent<HTMLSelectElement>) => void} onChange - Function to handle changes to the select field.
- * @param {string} [error] - Optional error message to display if there is a validation error.
+ * It displays a label and a select dropdown with provided options. An optional error message can be displayed if validation fails.
+ * 
+ * @param {OptionSelectorProps} props - The props for the component.
+ * @param {string} props.label - The label to display for the select field.
+ * @param {string} props.name - The name attribute of the select field.
+ * @param {string[]} props.options - Array of options to be displayed in the select dropdown.
+ * @param {string} props.value - The currently selected value of the select field.
+ * @param {(e: React.ChangeEvent<HTMLSelectElement>) => void} props.onChange - Callback function to handle changes to the select field.
+ * @param {string} [props.error] - Optional error message to display if there is a validation error.
+ * @param {string} [props['data-testid']] - Optional data-testid attribute for testing purposes.
  * 
  * @returns {JSX.Element} The rendered select field with its options and label.
  */

@@ -1,0 +1,12 @@
+{
+  "out": "docs",
+  "entryPoints": ["src/main.tsx"], 
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"],
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeExternals": true,
+  "theme": "default",
+  "name": "wealth_health_hrnet",
+  "readme": "README.md",
+  "highlightLanguages": ["jsx", "typescript", "javascript"]
+}

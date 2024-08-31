@@ -9,16 +9,21 @@ interface ModalProps {
 }
 
 /**
- * The Modal component displays a modal dialog with content and handles the body's overflow style.
+ * The `Modal` component displays a modal dialog with the provided content.
  * 
- * @param {React.ReactNode} children - The content to display inside the modal.
+ * It handles the body's overflow style to prevent scrolling when the modal is open.
  * 
- * @returns {JSX.Element} The rendered modal component with content.
+ * @param {ModalProps} props - The props for the modal component.
+ * @param {React.ReactNode} props.children - The content to display inside the modal.
+ * 
+ * @returns {JSX.Element} The rendered modal component with the provided content.
  */
 const Modal: React.FC<ModalProps> = ({ children }) => {
   useEffect(() => {
+    // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
     return () => {
+      // Re-enable body scroll when modal is closed
       document.body.style.overflow = 'auto';
     };
   }, []);

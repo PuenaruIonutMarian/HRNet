@@ -27,6 +27,10 @@ interface DateSelectorProps {
    */
   error?: string;
 
+  /**
+   * Optional data-testid attribute for testing.
+   */
+
   'data-testid'?: string;
 }
 

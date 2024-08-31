@@ -2,8 +2,18 @@ import { Link } from 'react-router-dom';
 import styles from './ErrorPage.module.scss';
 
 /**
- * Component to display a 404 error.
- * @returns {JSX.Element} The component representing the 404 error.
+ * `Error` is a React functional component that displays a 404 error page.
+ * 
+ * This component provides a user-friendly message indicating that the requested page was not found,
+ * and offers a link to navigate back to the home page.
+ * 
+ * @component
+ * @example
+ * return (
+ *   <Error />
+ * );
+ * 
+ * @returns {JSX.Element} The rendered 404 error page component.
  */
 const Error: React.FC = (): JSX.Element => {
   return (

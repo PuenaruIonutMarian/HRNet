@@ -4,9 +4,11 @@ import style from './header.module.scss';
 interface HeaderProps {}
 
 /**
- * The Header component displays the title and a navigation link for the HR application.
+ * The `Header` component displays the application title and a navigation link.
  * 
- * This component includes a title with a stylized HR abbreviation and a link to the "See All Employees" page.
+ * This component includes:
+ * - A title with the abbreviation "HRNET".
+ * - A link to the "See All Employees" page.
  * 
  * @component
  * @returns {JSX.Element} The rendered header component with a navigation link.

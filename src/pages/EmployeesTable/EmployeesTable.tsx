@@ -21,7 +21,9 @@ import style from './EmployeesTable.module.scss';
  * @example
  * return (
  *   <EmployeesTable />
- * )
+ * );
+ * 
+ * @returns {JSX.Element} The rendered EmployeesTable component with employee data and delete functionality.
  */
 const EmployeesTable: React.FC = () => {
   const [showModal, setShowModal] = useState(false); 

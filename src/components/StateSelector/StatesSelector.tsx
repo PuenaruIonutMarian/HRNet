@@ -33,20 +33,27 @@ interface StateSelectorProps {
    * Optional error message to display if there is a validation error.
    */
   error?: string;
-
+  /**
+   * Optional data-testid attribute for testing purposes.
+   */
   'data-testid'?: string;
 }
 
 /**
- * The StateSelector component renders a dropdown select field for selecting a state with a label
+ * The `StateSelector` component renders a dropdown select field for selecting a state with a label
  * and optional error message.
  * 
- * @param {string} label - The label to display for the select field.
- * @param {string} name - The name attribute of the select field.
- * @param {Array<{ name: string; abbreviation: string }>} options - Array of state objects to be displayed in the select dropdown.
- * @param {string} value - The current selected value of the select field, which is the state's abbreviation.
- * @param {(e: React.ChangeEvent<HTMLSelectElement>) => void} onChange - Function to handle changes to the select field.
- * @param {string} [error] - Optional error message to display if there is a validation error.
+ * It provides a dropdown with state options and displays a label. If provided, an error message
+ * will be displayed below the select field.
+ * 
+ * @param {StateSelectorProps} props - The props for the component.
+ * @param {string} props.label - The label to display for the select field.
+ * @param {string} props.name - The name attribute of the select field.
+ * @param {Array<{ name: string; abbreviation: string }>} props.options - Array of state objects to be displayed in the select dropdown.
+ * @param {string} props.value - The currently selected value of the select field, which is the state's abbreviation.
+ * @param {(e: React.ChangeEvent<HTMLSelectElement>) => void} props.onChange - Function to handle changes to the select field.
+ * @param {string} [props.error] - Optional error message to display if there is a validation error.
+ * @param {string} [props['data-testid']] - Optional data-testid attribute for testing purposes.
  * 
  * @returns {JSX.Element} The rendered select field with its options and label.
  */

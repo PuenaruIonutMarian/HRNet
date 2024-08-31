@@ -12,7 +12,6 @@
  * @property {string} state - The state where the employee resides, typically represented by a two-letter abbreviation.
  * @property {string} zipCode - The postal/zip code for the employee's address.
  * @property {string} department - The department where the employee works.
- * @property {unknown} [key: string] - Any additional properties that may be added dynamically.
  */
 export interface Employee {
   [key: string]: unknown;
