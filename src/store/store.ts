@@ -3,71 +3,73 @@ import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, 
 import storage from 'redux-persist/lib/storage';
 import employeeReducer from './employeeSlice';
 
-
 /**
- * Combines all the reducers into a single root reducer.
+ * The root reducer combining all slice reducers.
+ * In this case, it includes only the employeeReducer.
  * 
- * @see https://redux-toolkit.js.org/api/combineReducers
+ * @type {import('@reduxjs/toolkit').Reducer<import('redux').CombinedState<{ employees: import('./employeeSlice').EmployeeState }>>}
  */
 const rootReducer = combineReducers({
   employees: employeeReducer,
 });
 
 /**
- * Configuration object for Redux Persist.
+ * Configuration for Redux Persist to enable state persistence.
  * 
- * @typedef {Object} PersistConfig
- * @property {string} key - The key for the persisted state in local storage.
- * @property {Storage} storage - The storage engine to use (localStorage in this case).
- * @property {string[]} whitelist - The list of reducers to persist.
- */
-
-/**
- * The configuration for persisting the Redux state.
- * 
- * @type {PersistConfig}
+ * @type {import('redux-persist').PersistConfig<any>}
  */
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['employees'],
+  whitelist: ['employees'], // Only persist the 'employees' slice
 };
 
 /**
- * Enhances the root reducer with persistence capabilities.
+ * The persisted reducer integrates Redux Persist with the root reducer.
+ * 
+ * @type {import('redux').Reducer<import('redux').CombinedState<{ employees: import('./employeeSlice').EmployeeState }>, import('redux').AnyAction>}
  */
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-
 /**
- * Configures and creates the Redux store with middleware for handling 
- * serializable checks and persistence.
+ * The Redux store is configured with the persisted reducer.
+ * It includes middleware for serializable checks with Redux Persist actions.
+ * 
+ * @type {import('@reduxjs/toolkit').Store<import('redux').CombinedState<{ employees: import('./employeeSlice').EmployeeState }>, import('redux').AnyAction, [import('redux').Middleware<any, import('redux').AnyAction, any>]>}
  */
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER], // Ignoring specific actions for serialization checks
       },
     }),
 });
 
 /**
- * Creates a persistor to be used with the store to persist the state.
+ * Creates a persistor for the store, which is used to persist the store's state.
+ * 
+ * @type {import('redux-persist').Persistor}
  */
 export const persistor = persistStore(store);
 
+// For testing purposes, attach the store to the global window object if Playwright is detected
+if (typeof window !== 'undefined' && (window as any).IS_PLAYWRIGHT) {
+  (window as any).store = store;
+}
+
 /**
- * Type representing the root state of the Redux store.
+ * Type representing the entire Redux state of the application.
  * 
- * @typedef {ReturnType<typeof store.getState>} RootState
+ * @type {import('@reduxjs/toolkit').InferType<ReturnType<typeof store.getState>>}
  */
+export type RootState = ReturnType<typeof store.getState>;
 
 /**
  * Type representing the dispatch function of the Redux store.
  * 
- * @typedef {typeof store.dispatch} AppDispatch
+ * @type {import('redux').Dispatch<import('redux').AnyAction>}
  */
-export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+

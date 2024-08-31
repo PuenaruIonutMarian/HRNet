@@ -24,9 +24,11 @@ const Modal: React.FC<ModalProps> = ({ children }) => {
   }, []);
 
   return (
-    <div className={style.modal}>
-      <div className={style.modalContent}>
-        <div className={style.createMessage}>{children}</div>
+    <div className={style.modal} data-testid="modal">
+      <div className={style.modalContent} data-testid="modal-content">
+        <div className={style.createMessage} data-testid="modal-message">
+          {children}
+        </div>
       </div>
     </div>
   );
