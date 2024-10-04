@@ -20,6 +20,9 @@
     "docs": "typedoc --options typedoc.json",
     "test": "vitest --config ./vitest.config.ts",
     "test:playwright": "npx playwright test",
+    "test:chrome": "npx playwright test --project=chromium",
+    "test:firefox": "npx playwright test --project=firefox",
+    "test:safari": "npx playwright test --project=webkit",
     "test:unit": "vitest"
   },
   "dependencies": {

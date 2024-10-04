@@ -135,11 +135,19 @@ To run the unit tests with Vitest:
 ```bash
 npm run test:unit
 ```
-#### Playwright Tests:
+#### End to End Playwright Tests:
 To run Playwright end-to-end tests:
 
 ```bash
 npm run test:playwright
+```
+
+If you want to run the test in a single browser you can use one the following commands:
+
+```bash
+npm run test:chrome
+npm run test:firefox
+npm run test:safari
 ```
 
 Test Results:
