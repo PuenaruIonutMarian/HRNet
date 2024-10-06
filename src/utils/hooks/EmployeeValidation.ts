@@ -22,7 +22,7 @@ const useEmployeeValidation = (employee: Employee) => {
    *
    * @returns {boolean} - Returns true if the form is valid, otherwise false.
    */
-  const validateForm = useCallback(() => {
+  const validateForm = useCallback(() => { // Memoizes the validateForm function, so if the dependencies don't change, it will return the same function instance, which helps with performance.
     const newErrors: ValidationErrors = {};
 
     /**
